@@ -1,9 +1,11 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import Header from "@/components/header";
+import Header from "../components/header.jsx";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from '@clerk/themes'
+import React from "react";
+
 
 
 const inter = Inter({subsets: ["latin"]})
