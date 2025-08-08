@@ -3,10 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="max-padd-container ">
-      <h1>hola</h1>
-      <Button>
-      </Button>
+    <div className=" ">
         <ModeToggle/>
     </div>
   );
