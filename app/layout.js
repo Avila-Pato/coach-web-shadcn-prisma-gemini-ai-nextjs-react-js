@@ -8,12 +8,12 @@ import React from "react";
 
 
 
-const inter = Inter({subsets: ["latin"]})
 
 export const metadata = {
   title: "Carrer-web-ai",
   description: "Made by Patricio avila",
 };
+const inter = Inter({subsets: ["latin"]})
 
 export default function RootLayout({ children }) {
   return (
@@ -33,7 +33,7 @@ appearance={{
             disableTransitionOnChange
             >
             <Header />
-          <main className="min-h-screen max-padd-container ">
+          <main className="min-h-screen">
               {children}
             </main>
             <footer className="bg-muted/50 py-12">
