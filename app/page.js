@@ -2,6 +2,11 @@ import HeroSection from "./../components/hero";
 import { features } from "./data/features";
 import  { howItWorks } from "./data/howItWorks";
 import { testimonial } from "./data/testimonial";
+import Link from "next/link";
+import { Button } from "../components/ui/button";
+import { ArrowRight } from "lucide-react";
+
+
 import { faqs } from "./data/faqs";
 import Image from "next/image";
 
@@ -11,8 +16,7 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle }
-from "./../components/ui/card";
+  CardTitle } from "./../components/ui/card";
 
 import {
   Accordion,
@@ -20,9 +24,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./../components/ui/accordion"
-import Link from "next/link";
-import { Button } from "../components/ui/button";
-import { ArrowRight } from "lucide-react";
 
 
 
