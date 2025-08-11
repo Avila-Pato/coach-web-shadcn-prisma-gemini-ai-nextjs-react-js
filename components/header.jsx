@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { ChevronDown, FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon } from "lucide-react";
 import { ModeToggle } from "../components/toggle-mode";
-import { chekUser } from "../lib/checkUser";
+import { checkUser } from "../lib/checkUser";
 
 import {
   DropdownMenu,
@@ -15,8 +15,8 @@ import {
   DropdownMenuTrigger,
 } from "../components/ui/dropdown-menu";
 
-const Header = async () => {
-  await chekUser();
+const Header  = async () => {
+  await checkUser();
   // Llama a Clerk (currentUser()) para obtener el usuario que inició sesión.
   // Busca en la DB si existe (db.user.findUnique).
   // Si no existe, lo crea (db.user.create).

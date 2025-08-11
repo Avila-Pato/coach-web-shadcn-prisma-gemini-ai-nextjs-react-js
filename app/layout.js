@@ -5,7 +5,7 @@ import Header from "../components/header.jsx";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from '@clerk/themes'
 import React from "react";
-
+import { Toaster } from "sonner";
 
 
 
@@ -28,7 +28,7 @@ appearance={{
         >
         <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
             >
@@ -36,6 +36,7 @@ appearance={{
           <main className="min-h-screen">
               {children}
             </main>
+            <Toaster  richColors/>
             <footer className="bg-muted/50 py-12">
             <div className="container mx-auto px-4 text-center ">
               Made by <a href="https://github.com/Avila-Pato">Avila-Pato</a>

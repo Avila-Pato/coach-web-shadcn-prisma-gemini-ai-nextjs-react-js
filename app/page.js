@@ -194,19 +194,21 @@ export default function Home() {
 
 
         <section className="w-full">
-           <div className="mx-auto py-4 bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600 rounded-lg">
-            <div className="flex flex-col items-center justify-center space-y-4  text-center max-w-3xl mx-auto ">
-             <h2 className="text-3xl font-bold tracking-tighter text-primary-foreground sm:text-4xl md:text-5xl">
+           <div className="mx-auto py-4   rounded-lg">
+            <div className="flex flex-col  items-center justify-center space-y-4  text-center max-w-3xl mx-auto ">
+              <div className="gradient-title">
+             <h2 className="text-3xl  font-bold tracking-tighter text-primary-foreground sm:text-4xl md:text-5xl">
               Listo para acelarar tu carrera profesional
               </h2>
               <p className="mx-auto max-w-[600px] text-primary-foreground/80 md:text-xl ">
                 Unete a miles de profesionales quienes estan avanzando sus carreras con Ai-Powered Carrer Guidance
               </p>
+              </div>
               <Link href="/dashboard" passHref>
                <Button
                size="lg"
                variant="secondary"
-               className="h-11 mt-5 animate-bounce"
+               className="h-11 mt-5 animate-bounce font-semibold text-white dark:text-black bg-primary hover:bg-primary/80 hover:text-primary-foreground"
                >
                 Empieza tu viaje Hoy <ArrowRight  className="ml-2 h-4 w-4"/> 
                </Button>
