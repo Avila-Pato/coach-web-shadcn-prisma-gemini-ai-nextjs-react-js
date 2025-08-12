@@ -1,4 +1,6 @@
-import { getUserOnboardingStatus } from '@/actions/user';
+import { getUserOnboardingStatus } from './../../../actions/user';
+import DashboardView from "./_components/dashboard-view"
+
 import { redirect } from 'next/navigation';
 import React from 'react'
 
@@ -11,9 +13,11 @@ const { isOnboarded } = await getUserOnboardingStatus();
         redirect("/onboarding")
     }
 
-
+    const insights = await getIndustryInsights();
   return (
-    <div>DashboadPage</div>
+    <div>
+      <DashboardView  insights={insights}/>
+    </div>
   )
 }
 
