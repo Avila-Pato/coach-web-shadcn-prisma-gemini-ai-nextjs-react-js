@@ -3,6 +3,7 @@
 
 import { auth } from "@clerk/nextjs/server";
 import { db } from "../lib/prisma";
+import { success } from "zod";
 
 export async function updateUser(data) {
   // Primero obtien el userId del usuario 
@@ -39,9 +40,9 @@ export async function updateUser(data) {
               industry: data.industry,
               salaryRanges: [],
               growthRate: 0,
-              demandLevel: "Medium",
+              demandLevel: "MEDIUM",
               topSkills: [],
-              marketOutlook: [],
+              marketOutlook: "NEUTRAL",
               keyTrends: [],
               recommendedSkills: [],
               nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 dias
@@ -67,6 +68,7 @@ export async function updateUser(data) {
         timeout: 10000, //
       }
     );
+    return { success: true, ...result}
   } catch (error) {
     console.log("Error al actualizar usuario y industria ", error.message);
     throw new Error("Error al actualizar usuario y industria");
@@ -76,7 +78,10 @@ export async function updateUser(data) {
 // Propósito:  Comprueba si el usuario ya pasó por el proceso de configuración inicial (tiene industria definida).
 export async function getUserOnboardingStatus() {
   const { userId } = await auth();
-  if (!userId) throw new Error("No autorizado");
+
+  if (!userId) {
+    return { isOnboarded: false }; // Evita error y devuelve un estado seguro
+  }
 
   try {
     const user = await db.user.findUnique({
@@ -84,12 +89,10 @@ export async function getUserOnboardingStatus() {
       select: { industry: true },
     });
 
-    if (!user) throw new Error("Usuario no encontrado");
-
-    return { isOnboarded: !!user.industry };
+    return { isOnboarded: !!user?.industry };
   } catch (error) {
-    console.log("Error al revisar el estado de onboarding", error.message);
-    throw new Error("Error al revisar el estado de onboarding");
+    console.error("Error al revisar el estado de onboarding:", error);
+    return { isOnboarded: false };
   }
 }
 

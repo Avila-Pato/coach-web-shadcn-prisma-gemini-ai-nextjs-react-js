@@ -2,7 +2,9 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
-import { useForm } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import { onboardingSchema } from "../../../.././lib/schema";
 import { useRouter } from "next/navigation";
 import useFetch from "../../../../hooks/use-fetch";
